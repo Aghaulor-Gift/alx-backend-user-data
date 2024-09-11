@@ -8,13 +8,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from db import DB
 from user import User
 
-
-class Auth:
-    """Auth class to handle password hashing and other
-    authentication methods"""
-
-    @staticmethod
-    def _hash_password(password: str) -> bytes:
+def _hash_password(password: str) -> bytes:
         """Hashes a password using bcrypt.
 
         Args:
