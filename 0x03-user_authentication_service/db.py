@@ -62,9 +62,9 @@ class DB:
             InvalidRequestError: If invalid arguments are passed.
         """
         try:
-            user = self._session.query(User).filter_by(**kwargs).one()
-        except NoResultFound:
-            raise NoResultFound("No user matches the given criteria.")
+            user = self._session.query(User).filter_by(**kwargs).first()
+            if user is None:
+                raise NoResultFound("No user matches the given criteria.")
         except Exception as e:
             if isinstance(e, InvalidRequestError):
                 raise InvalidRequestError("Invalid request arguments.")
