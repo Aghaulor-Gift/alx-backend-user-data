@@ -64,9 +64,9 @@ class DB:
         try:
             user = self._session.query(User).filter_by(**kwargs).first()
             if user is None:
-                raise NoResultFound("No user matches the given criteria.")
+                raise NoResultFound
         except Exception as e:
             if isinstance(e, InvalidRequestError):
-                raise InvalidRequestError("Invalid request arguments.")
+                raise InvalidRequestError
             raise e
         return user
