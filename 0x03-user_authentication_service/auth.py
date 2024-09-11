@@ -4,7 +4,6 @@ and returns bytes.The returned bytes is a salted hash of the input password,
 hashed with bcrypt.hashpw."""
 import bcrypt
 from sqlalchemy.orm.exc import NoResultFound
-
 from db import DB
 from user import User
 
