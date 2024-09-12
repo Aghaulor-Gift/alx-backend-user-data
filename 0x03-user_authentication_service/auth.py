@@ -88,3 +88,7 @@ class Auth:
             return user
         except ValueError:
             return None
+
+    def destroy_session(self, user_id: int) -> None:
+        """Destroy the session for the given user_id by setting session_id to None."""
+        self._db.update_user(user_id, session_id=None)
